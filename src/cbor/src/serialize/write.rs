@@ -124,7 +124,9 @@ pub trait WriteTo {
     fn len(&self) -> usize;
 
     /// Returns true if length is 0.
-    fn is_empty(&self) -> bool { self.len() == 0 }
+    fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
 
     /// Write this type to a writer. The writer can be any type that implement the
     /// Write type from this crate.

@@ -16,10 +16,7 @@ fn array_small() {
         owned::array(&values)
     };
 
-    assert_value_owned(
-        v,
-        "850018011900021a000000031b0000000000000004",
-    );
+    assert_value_owned(v, "850018011900021a000000031b0000000000000004");
 }
 
 #[test]
