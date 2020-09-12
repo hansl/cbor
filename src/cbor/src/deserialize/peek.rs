@@ -27,8 +27,8 @@ mod text_test;
 
 use crate::serialize::owned::OwnedValue;
 
-pub fn peek<'a>(bytes: &'a [u8]) -> Option<OwnedValue> {
-    if bytes.len() == 0 {
+pub fn peek(bytes: &[u8]) -> Option<OwnedValue> {
+    if bytes.is_empty() {
         return None;
     }
 
