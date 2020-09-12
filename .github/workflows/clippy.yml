@@ -34,6 +34,6 @@ jobs:
           rustup component add clippy
 
       - name: Linting (cargo clippy)
-        run: cargo clippy --verbose --tests --benches -- -D clippy::all
+        run: cargo clippy --tests --benches -- -D clippy::all
         env:
           RUST_BACKTRACE: 1
