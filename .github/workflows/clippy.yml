@@ -30,8 +30,8 @@ jobs:
       - name: Install Rust
         run: |
           rustup update ${{ matrix.rust }} --no-self-update
-          rustup component add clippy
           rustup default ${{ matrix.rust }}
+          rustup component add clippy
 
       - name: Linting (cargo clippy)
         run: cargo clippy --verbose --tests --benches -- -D clippy::all
