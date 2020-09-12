@@ -249,6 +249,6 @@ mod std_tests {
     fn test_half() {
         let vec = to_vec(&42.5f32).unwrap();
         assert_eq!(vec, b"\xF9\x51\x50");
-        assert_eq!(from_slice::<f32>(&vec[..]).unwrap(), 42.5f32);
+        assert!((from_slice::<f32>(&vec[..]).unwrap() - 42.5f32).abs() < f32::EPSILON);
     }
 }

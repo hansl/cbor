@@ -1,7 +1,6 @@
 #[macro_use]
 extern crate serde_derive;
 
-use serde_cbor;
 use serde_cbor::de;
 
 #[test]
@@ -27,7 +26,7 @@ fn test_int() {
 #[test]
 fn test_float() {
     let float: f64 = de::from_slice_with_scratch(b"\xfa\x47\xc3\x50\x00", &mut []).unwrap();
-    assert_eq!(float, 100000.0);
+    assert!((float - 100000.0).abs() < f64::EPSILON);
 }
 
 #[test]
@@ -275,7 +274,7 @@ mod std_tests {
     #[test]
     fn test_32f16() {
         let value: f32 = de::from_slice(b"\xf9\x50\x00").unwrap();
-        assert_eq!(value, 32.0f32);
+        assert!((value - 32.0f32).abs() < f32::EPSILON);
     }
 
     #[test]

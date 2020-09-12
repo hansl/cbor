@@ -3,8 +3,6 @@ extern crate serde_derive;
 
 #[cfg(feature = "std")]
 mod std_tests {
-    use serde_cbor;
-
     use std::collections::BTreeMap;
 
     #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
@@ -28,16 +26,16 @@ mod std_tests {
 
     #[test]
     fn serde() {
-        let tuple_struct = TupleStruct(format!("test"), -60, 3000);
+        let tuple_struct = TupleStruct("test".to_string(), -60, 3000);
 
-        let tuple = (format!("hello"), -50.0040957, -12.094635556478);
+        let tuple = ("hello".to_string(), -50.004_097, -12.094_635_556_478);
 
         let map = BTreeMap::from_iter(
             [
-                (format!("key1"), format!("value1")),
-                (format!("key2"), format!("value2")),
-                (format!("key3"), format!("value3")),
-                (format!("key4"), format!("value4")),
+                ("key1".to_string(), "value1".to_string()),
+                ("key2".to_string(), "value2".to_string()),
+                ("key3".to_string(), "value3".to_string()),
+                ("key4".to_string(), "value4".to_string()),
             ]
             .iter()
             .cloned(),
@@ -45,7 +43,7 @@ mod std_tests {
 
         let bytes = b"test byte string";
 
-        let array = vec![format!("one"), format!("two"), format!("three")];
+        let array = vec!["one".to_string(), "two".to_string(), "three".to_string()];
         let unit_array = vec![UnitStruct, UnitStruct, UnitStruct];
 
         let data = Struct {

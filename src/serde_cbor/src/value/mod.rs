@@ -19,6 +19,8 @@ pub use self::ser::to_value;
 /// to a canonical form of CBOR from the same RFC.
 ///
 /// [RFC 7049 bis]: https://tools.ietf.org/html/draft-ietf-cbor-7049bis-04#section-2
+#[allow(clippy::manual_non_exhaustive)]
+#[non_exhaustive]
 #[derive(Clone, Debug)]
 pub enum Value {
     /// Represents the absence of a value or the value undefined.
