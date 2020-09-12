@@ -45,8 +45,8 @@ jobs:
           # do those separately.
           for p in $(cargo metadata --no-deps --format-version 1 | jq -r .packages[].manifest_path); do
             pushd $(dirname $p)
-            cargo test --all-targets --all-features --no-doc
-            cargo test --all-targets --no-default-features --no-doc
+            cargo test --all-targets --all-features -- --no-doc
+            cargo test --all-targets --no-default-features -- --no-doc
             popd
           done
         env:
